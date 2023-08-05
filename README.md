@@ -37,22 +37,31 @@ npm run build
 ## Layers
 
 > app
+
 > pages
+
 > widgets
+
 > features
+
 > entities
+
 > shared
 
 ## Slices
 
 > components
+
 > modules
+
 > etc
 
 ## Segments
 
 > model
+
 > ui
+
 > api
 
 # Documentation FSD
