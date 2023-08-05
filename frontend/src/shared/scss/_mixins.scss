@@ -1,0 +1,24 @@
+@mixin default-page {
+    min-width: 100vw;
+    min-height: 100vh;
+    background: $primary-background;
+}
+
+@mixin flex-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin absolute-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin flex-direction($direction: row nowrap, $gap: 10px) {
+    display: flex;
+    flex-flow: $direction;
+    gap: $gap;
+}

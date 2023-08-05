@@ -9,3 +9,7 @@ export default {
     name: 'loginPage',
 }
 </script>
+
+<style lang="scss">
+    
+</style>
