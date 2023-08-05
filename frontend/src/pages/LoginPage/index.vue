@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style lang="scss">
-    
+    .login-page {
+        @include default-page;
+    }
 </style>

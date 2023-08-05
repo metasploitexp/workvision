@@ -9,3 +9,9 @@ export default {
     name: 'homePage'
 }
 </script>
+
+<style lang="scss">
+    .home-page {
+        @include default-page;
+    }
+</style>
