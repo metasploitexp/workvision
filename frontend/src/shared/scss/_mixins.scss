@@ -17,7 +17,7 @@
     transform: translate(-50%, -50%);
 }
 
-@mixin flex-direction($direction: row nowrap, $gap: 10px) {
+@mixin default-flex($direction: row nowrap, $gap: 10px) {
     display: flex;
     flex-flow: $direction;
     gap: $gap;

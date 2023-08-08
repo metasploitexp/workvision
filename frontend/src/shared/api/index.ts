@@ -5,13 +5,16 @@ export const query = async (path: string, params: object = {}, method: string = 
     try {
         let url: string = process.env.VUE_APP_BASE_URL + path;
 
+        let response: any = null;
         if (method === 'GET') {
             url += '?' + CreateParams(params);
-            const response = await axios.get(url);
+            response = await axios.get(url);
             return response;
         } else if (method === 'POST') {
-
+            response = await axios.post(url, params);
         }
+        
+        return response;
     } catch (error) {
         console.log(error);
         return error;
