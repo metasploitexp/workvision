@@ -12,7 +12,5 @@ export default {
 </script>
 
 <style lang="scss">
-    .home-page {
-        // @include default-page;
-    }
+    
 </style>
