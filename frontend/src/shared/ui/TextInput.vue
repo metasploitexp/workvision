@@ -27,8 +27,9 @@ export default {
 
 <style lang="scss">
     .ui-text-input {
+        
         input {
-            // border: 4px solid $blue;
+            border: 1px solid $primary-background;
             overflow: auto;
             outline: none;
             -webkit-box-shadow: none;
@@ -39,6 +40,8 @@ export default {
             font-size: 18px;
             border-radius: 10px;
             padding: 5px;
+            width: 100%;
+            box-sizing: border-box;
             // width: 100%;
             // max-width: 290px;
         }

@@ -18,6 +18,5 @@ export default {
 <style lang="scss">
     .login-page {
         @include default-page;
-        @include flex-centered;
     }
 </style>

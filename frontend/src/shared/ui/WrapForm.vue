@@ -27,6 +27,7 @@ export default {
         padding: 20px;
         border-radius: 10px;
         background: $white;
+        min-width: 300px;
 
         &__title {
             font-size: 20px;

@@ -1,0 +1,15 @@
+{
+  "login": {
+    "title": "Вход",
+    "mail": "Почта",
+    "password": "Пароль",
+    "button": "Войти"
+  },
+  "register": {
+    "title": "Вход",
+    "mail": "Почта",
+    "password": "Пароль",
+    "repeat": "Повторите пароль",
+    "button": "Войти"
+  }
+}
