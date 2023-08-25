@@ -12,5 +12,17 @@ module.exports = defineConfig({
         `
       }
     }
+  },
+
+  pluginOptions: {
+    i18n: {
+      locale: 'ru',
+      fallbackLocale: 'en',
+      localeDir: 'shared',
+      enableLegacy: false,
+      runtimeOnly: false,
+      compositionOnly: false,
+      fullInstall: true
+    }
   }
 })
