@@ -1,5 +1,5 @@
 <template>
-    <div class="header">
+    <div class="header-bar">
         <Logo /> 
     </div>
 </template>
@@ -8,7 +8,7 @@
 import Logo from '@/shared/ui/Logo.vue';
 
 export default {
-    name: 'header',
+    name: 'headerBar',
     components: {
         Logo,
     }
@@ -16,5 +16,8 @@ export default {
 </script>
 
 <style lang="scss">
-    
+    .header-bar {
+        background: $white;
+        padding: 15px;
+    }
 </style>

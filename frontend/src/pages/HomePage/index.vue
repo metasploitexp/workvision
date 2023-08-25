@@ -13,6 +13,6 @@ export default {
 
 <style lang="scss">
     .home-page {
-        @include default-page;
+        // @include default-page;
     }
 </style>
