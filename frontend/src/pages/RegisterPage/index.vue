@@ -16,7 +16,5 @@ export default {
 </script>
 
 <style lang="scss">
-    .register-page {
-        @include default-page;
-    }
+    
 </style>
