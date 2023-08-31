@@ -17,7 +17,7 @@ export default {
 
 <style lang="scss">
     .header-bar {
-        background: $white;
-        padding: 15px;
+        padding: 15px 20px;
+        border-bottom: 1px solid $primary-background;
     }
 </style>
