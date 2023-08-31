@@ -1,15 +1,20 @@
 {
-    "login": {
-        "title": "Sign in",
-        "mail": "Mail",
-        "password": "Password",
-        "button": "Sign in"
-      },
-    "register": {
-        "title": "Sign in",
-        "mail": "Mail",
-        "password": "Password",
-        "repeat": "Repeat password",
-        "button": "Sign in"
-      }
+  "login": {
+    "title": "Sign in",
+    "mail": "Mail",
+    "password": "Password",
+    "button": "Sign in"
+  },
+  "register": {
+    "title": "Sign in",
+    "mail": "Mail",
+    "password": "Password",
+    "repeat": "Repeat password",
+    "button": "Sign in"
+  },
+  "menu": {
+    "home": "Home",
+    "workspaces": "Workspaces",
+    "boards": "Boards"
+  }
 }

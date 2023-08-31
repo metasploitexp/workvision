@@ -1,14 +1,9 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
+import { MenuModel } from '@/features/MenuList';
 
 export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+  strict: true,
   modules: {
+    [MenuModel.NAMESPACE]: MenuModel.module
   }
 })

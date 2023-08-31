@@ -1,5 +1,5 @@
 <template>
-    <div class="home-page">
+    <div class="boards-page">
         <DesktopPanel />
     </div>
 </template>
@@ -8,7 +8,7 @@
 import { DesktopPanel } from '@/widgets/DesktopPanel';
 
 export default {
-    name: 'homePage',
+    name: 'boardsPage',
     components: {
         DesktopPanel,
     }
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style lang="scss">
-    .home-page {
+    .boards-page {
         padding: 0 20px;
     }
 </style>
