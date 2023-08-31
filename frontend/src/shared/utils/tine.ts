@@ -1,9 +1,15 @@
 import moment from "moment";
-/* функция для сравнения двух дат  */
-export function compareDates(date1: Date, date2: Date): boolean {
-	const momentDate1 = moment(date1);
-	const momentDate2 = moment(date2);
-	return momentDate1.isBefore(momentDate2);
+/* функция для проверки какая дата идёт по середине  */
+
+export function isDateBetween(
+	date: Date,
+	startDate: Date,
+	endDate: Date
+): boolean {
+	const momentDate = moment(date);
+	const momentStarDate = moment(startDate);
+	const momentEndDate = moment(endDate);
+	return momentDate.isBetween(momentStarDate, momentEndDate, undefined, "[]");
 }
 /* Функцию для определения какая дата идет раньше */
 export function isDateBefore(date1: Date, date2: Date): boolean {
