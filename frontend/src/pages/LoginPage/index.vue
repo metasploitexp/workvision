@@ -1,7 +1,7 @@
 <template>
-<div class="login-page">
-<LoginForm />
-</div>
+	<div class="login-page">
+		<LoginForm />
+	</div>
 </template>
 
 <script>
@@ -14,4 +14,7 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+
+</style>
+	    	
