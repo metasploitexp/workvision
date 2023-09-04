@@ -6,6 +6,7 @@
 
 <script>
 import { LoginForm } from "@/features/LoginForm";
+
 export default {
 	name: "loginPage",
 	components: {
