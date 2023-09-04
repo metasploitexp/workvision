@@ -4,9 +4,9 @@ import moment from "moment";
 /* функция для проверки какая дата идёт по середине  */
 
 export function isDateBetween(
-	date: any,
-	startDate: any,
-	endDate: any
+date: any,	
+startDate: any,
+endDate: any
 ): boolean {
 	const momentDate = moment(date);
 	const momentStarDate = moment(startDate);
