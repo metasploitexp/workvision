@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import { LoginForm } from "@/features/LoginForm";
+import { LoginForm } from '@/features/LoginForm';
 
 export default {
-    name: "loginPage",
+    name: 'loginPage',
     components: {
         LoginForm,
     }
