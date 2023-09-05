@@ -9,3 +9,9 @@ export default {
     name: 'uiLogo',
 }
 </script>
+
+<style lang="scss">
+    .ui-logo {
+       padding: 25px;
+    }
+</style>

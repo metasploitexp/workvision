@@ -16,5 +16,12 @@
     "home": "Главная",
     "workspaces": "Проекты",
     "boards": "Доски"
+  },
+  "account":{
+    "titles": {
+      "settings": "Настройки",
+      "help": "Помощь",
+      "logout": "Выйти"
+    }
   }
 }
