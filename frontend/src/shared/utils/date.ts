@@ -14,6 +14,6 @@ const DATE_FORMATS = ['DD MMMM YYYY', 'DD MM YYYY']
 export function formatDate(date: any): string {
     return moment(date, DATE_FORMATS).format("DD MM YYYY")}
 
-    /* Функция для привидения даты к типу дд мес.гггг (пример 22 авг. 2023) */
+/* Функция для привидения даты к типу дд мес.гггг (пример 22 авг. 2023) */
 export function formatDateM(date: any): string {
     return moment(date, DATE_FORMATS ).format("DD MMM YYYY")}

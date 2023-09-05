@@ -2,7 +2,8 @@
     <div class="login-page">
         <LoginForm />
     </div>
-</template>           
+</template>
+
 <script>
 import { LoginForm } from "@/features/LoginForm";
 export default {
@@ -12,6 +13,7 @@ export default {
     },
 };
 </script>
+
 <style lang="scss">
 
-</style>    
+</style>
