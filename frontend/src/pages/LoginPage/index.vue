@@ -12,7 +12,7 @@ export default {
     components: {
         LoginForm,
     }
-};
+}
 </script>
 
 <style lang="scss">
