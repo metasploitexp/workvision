@@ -8,7 +8,7 @@ export function isDateBetween(date: any, startDate: any, endDate: any) :boolean 
 
 /* Функцию для определения какая дата идет раньше */
 export function isDateBefore(date1: any, date2: any) {
-    return moment(date1).isBefore(date2)};
+    return moment(date1).isBefore(moment(date2))};
 
 /* Функция для привидения даты к типу дд-мм-гггг (пример 22-08-2023)*/
 export function formatDate(date: any): string {
