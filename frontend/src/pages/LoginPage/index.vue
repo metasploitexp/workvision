@@ -11,7 +11,7 @@ export default {
     name: 'loginPage',
     components: {
         LoginForm,
-    };
+    }
 };
 </script>
 
