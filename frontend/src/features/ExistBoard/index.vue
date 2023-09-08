@@ -1,22 +1,19 @@
 <template>
-    <div class='create-board' >
-        {{ $t('board.create') }}  
+    <div class='exist-board' > 
+        Созданная доска 
     </div>
 </template>
 
 <script>
 
-export default {
-    name: 'createBoard',
-}
-</script>
+</script>	
 
 <style lang='scss'>
-    .create-board {
+    .exist-board {
         padding: 40px 20px;
         margin-left: 25px;
         color: $white;
-        background-color: $primary-background;
+        background-color: $exist-board;
         width: 100%;
         max-width: 200px;
         height: 100%;
