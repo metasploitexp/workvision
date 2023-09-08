@@ -16,5 +16,8 @@
     "home": "Home",
     "workspaces": "Workspaces",
     "boards": "Boards"
+  },
+  "board" : {
+    "create": "Create board"
   }
 }

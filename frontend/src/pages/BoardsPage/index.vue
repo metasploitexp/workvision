@@ -21,5 +21,6 @@ export default {
 <style lang="scss">
     .boards-page {
         padding: 0 20px;
+        display: flex;
     }
 </style>
