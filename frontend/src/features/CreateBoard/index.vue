@@ -13,21 +13,22 @@ export default {
 
 <style lang='scss'>
     .create-board {
-        padding: 40px 20px;
+        padding: 45px 20px;
         margin-left: 25px;
-        color: $white;
+        color: $black;
         background-color: $primary-background;
         width: 100%;
-        max-width: 200px;
+        max-width: 320px;
+        min-height: 20px;
         height: 100%;
         justify-content: center;
         text-align: center;
-        border-radius: 10px;
+        border-radius: 5px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
         &:hover {
-            color: $hover;
+            color: $black;
             background-color: $hover-background;
             cursor: pointer;
             opacity: 1;

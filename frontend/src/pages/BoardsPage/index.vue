@@ -1,15 +1,15 @@
 <template>
     <div class="boards-page">
         <DesktopPanel />
-        <ExistBoard/>
         <CreateBoard />
+        <ExistBoard/>
     </div>
 </template>
 
 <script>
 import { DesktopPanel } from '@/widgets/DesktopPanel';
-import { ExistBoard } from '@/features/ExistBoard';
 import { CreateBoard } from '@/features/CreateBoard';
+import { ExistBoard } from '@/features/ExistBoard';
 
 export default {
     name: 'boardsPage',
