@@ -16,5 +16,12 @@
     "home": "Home",
     "workspaces": "Workspaces",
     "boards": "Boards"
+  },
+  "account":{
+    "titles": {
+      "settings": "Settings",
+      "help": "Help",
+      "logout": "Log out"
+    }
   }
 }
