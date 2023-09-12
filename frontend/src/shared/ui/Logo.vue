@@ -9,3 +9,12 @@ export default {
     name: 'uiLogo',
 }
 </script>
+
+<style lang="scss">
+.ui-logo img {
+
+    @media screen and (max-width: 350px) {
+       width: 120px;
+    }
+}
+</style>

@@ -52,7 +52,9 @@ export default {
 <style lang="scss">
     .register-form {
         @include absolute-centered;
-        
+        box-shadow: 4px 4px 15px #2B4F5A;
+        border-radius: 15px;
+
         &__content {
             @include default-flex(column, 20px);
 
@@ -65,7 +67,6 @@ export default {
                 margin: 0 auto;
                 width: fit-content;
                 font-size: 18px;
-
             }
         }
     }

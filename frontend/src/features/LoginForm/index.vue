@@ -44,6 +44,8 @@ export default {
 <style lang="scss">
     .login-form {
         @include absolute-centered;
+        box-shadow: 4px 4px 15px #2B4F5A;
+        border-radius: 15px;
         
         &__content {
             @include default-flex(column, 20px);

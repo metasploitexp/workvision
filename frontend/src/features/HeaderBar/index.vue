@@ -16,8 +16,8 @@ export default {
 </script>
 
 <style lang="scss">
-    .header-bar {
-        padding: 15px 20px;
-        border-bottom: 1px solid $primary-background;
-    }
+.header-bar {
+    padding: 15px 20px;
+    border-bottom: 1px solid $primary-background;
+}
 </style>
