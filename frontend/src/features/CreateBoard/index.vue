@@ -13,14 +13,14 @@ export default {
 
 <style lang='scss'>
     .create-board {
-        padding: 45px 20px;
+        padding: 40px 0px;
         margin-left: 25px;
         color: $black;
         background-color: $primary-background;
         width: 100%;
-        max-width: 320px;
-        min-height: 20px;
         height: 100%;
+        max-width: 320px;
+        max-height: 100px;
         justify-content: center;
         text-align: center;
         border-radius: 5px;
