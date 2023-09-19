@@ -1,11 +1,17 @@
 <template>
     <div class="exist-board">
-        <div class="exist-board__img">
-            <SvgIcon/>
+        <div class="exist-board__card">
+            Созданная доска
+        </div>
+        
+        <div class="exist-board__bg">
             <img src="../ExistBoard/DD-Night-Forest-Scene-45342.svg" alt="">
         </div>
-        <div class="exist-board__name">
-            Созданная доска
+        <div class="exist-board__hover" :class="{'click': starClicked }">
+            <div class="exist-board__bg">
+                <img src="../ExistBoard/DD-Night-Forest-Scene-45342.svg" alt="">
+                <SvgIcon @click="toggleColor" />
+            </div>
         </div>
     </div>
 </template>
@@ -14,15 +20,26 @@
 
 import SvgIcon from '@/shared/ui/Star.vue';
 export default {
-
+    
     name: 'existBoard',
     components: {
         SvgIcon,
     },
-}
+    data() {
+        return {
+            starClicked: false,
+        };
+    },
+    methods: {
+    toggleColor() {
+      this.starClicked =!this.starClicked;
+    }
+  }
+};
 </script>	
 
 <style lang='scss'>
+
     .exist-board {
         padding: 50px 0px;
         margin-left: 25px;
@@ -35,29 +52,30 @@ export default {
         white-space: nowrap;
         text-overflow: ellipsis;
         position: relative;
-    .exist-board__name {
+
+    .exist-board__card {
         position: absolute;
         top: 12px;
         left: 12px;
-        color: $black;
+        color: $white;
         font-weight: bold;
+        z-index: 4;
+    }
+    .exist-board__hover {
+        opacity: 0;
+        &:hover {
+            opacity: 1;
+        }
+        &.click {
         opacity: 1;
     }
-    .star {
-        position: absolute;
-        bottom: 12px;
-        right: 12px;
-    }
-    .exist-board__img {
+}
+    .exist-board__bg {
         position: absolute;
         top: 0;
         object-fit: cover;
         width: 100%;
         height: 100%;
-            &:hover {
-                opacity: 0.9;
-                transition: opacity 0.3s ease-in-out;
-            }
     }
 }
 </style>
