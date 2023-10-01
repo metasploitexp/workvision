@@ -1,16 +1,14 @@
 <template>
     <div class="exist-board">
-        <div class="exist-board__card">
-            Созданная доска
-        </div>
-        
         <div class="exist-board__bg">
-            <img src="../ExistBoard/DD-Night-Forest-Scene-45342.svg" alt="">
-        </div>
-        <div class="exist-board__hover" :class="{'click': starClicked }">
-            <div class="exist-board__bg">
                 <img src="../ExistBoard/DD-Night-Forest-Scene-45342.svg" alt="">
-                <SvgIcon @click="toggleColor" />
+            <span class="exist-board__card">
+            Созданная доска
+            </span>
+            <div class="exist-board__hover" :class="{'click': starClicked }">
+                <div class="exist-board__bg">
+                    <SvgIcon @click="toggleColor" />
+                </div>
             </div>
         </div>
     </div>
@@ -20,7 +18,6 @@
 
 import SvgIcon from '@/shared/ui/Star.vue';
 export default {
-    
     name: 'existBoard',
     components: {
         SvgIcon,
@@ -52,6 +49,21 @@ export default {
         white-space: nowrap;
         text-overflow: ellipsis;
         position: relative;
+        &:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.1); 
+            opacity: 0;
+            transition: opacity 0.5s;
+            content: '';
+            z-index: 5;
+    }
+    &:hover:before {
+      opacity: 0.9;
+    }
 
     .exist-board__card {
         position: absolute;
@@ -59,7 +71,10 @@ export default {
         left: 12px;
         color: $white;
         font-weight: bold;
-        z-index: 4;
+        opacity: 1;
+        &:hover {
+            opacity: 1;
+        }
     }
     .exist-board__hover {
         opacity: 0;
@@ -76,6 +91,7 @@ export default {
         object-fit: cover;
         width: 100%;
         height: 100%;
+        z-index: 5;
     }
 }
 </style>
