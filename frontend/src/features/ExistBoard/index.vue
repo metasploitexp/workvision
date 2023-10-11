@@ -1,42 +1,39 @@
 <template>
-    <div class="exist-board">
-        <div class="exist-board__bg">
-                <img src="../ExistBoard/DD-Night-Forest-Scene-45342.svg" alt="">
-            <span class="exist-board__card">
-            Созданная доска
+        <div class="exist-board">
+        <img class='exist-board__bg' src="../ExistBoard/DD-Night-Forest-Scene-45342.svg" alt="" v-bind:class="{ 'darken': isHovered }" v-on:mouseover="isHovered = true" v-on:mouseout="isHovered = false">
+            <span class="exist-board__title">
+                Созданная доска
             </span>
-            <div class="exist-board__hover" :class="{'click': starClicked }">
-                <div class="exist-board__bg">
-                    <SvgIcon @click="toggleColor" />
-                </div>
+            <div class="overlay" v-if="isHovered">
+                <Star class='star' />
             </div>
         </div>
-    </div>
 </template>
 
 <script>
 
-import SvgIcon from '@/shared/ui/Star.vue';
+import Star from '@/shared/ui/Star.vue';
+
 export default {
     name: 'existBoard',
     components: {
-        SvgIcon,
+        Star,
     },
     data() {
         return {
-            starClicked: false,
+            isHovered: false,
+            isStarClicked: false
         };
     },
     methods: {
     toggleColor() {
-      this.starClicked =!this.starClicked;
+      this.isStarClicked =!this.iSstarClicked;
     }
   }
 };
 </script>	
 
 <style lang='scss'>
-
     .exist-board {
         padding: 50px 0px;
         margin-left: 25px;
@@ -49,49 +46,52 @@ export default {
         white-space: nowrap;
         text-overflow: ellipsis;
         position: relative;
-        &:before {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.1); 
-            opacity: 0;
-            transition: opacity 0.5s;
-            content: '';
-            z-index: 5;
-    }
-    &:hover:before {
-      opacity: 0.9;
-    }
 
-    .exist-board__card {
+    .exist-board__title {
         position: absolute;
-        top: 12px;
-        left: 12px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         color: $white;
         font-weight: bold;
         opacity: 1;
-        &:hover {
-            opacity: 1;
-        }
     }
-    .exist-board__hover {
-        opacity: 0;
-        &:hover {
-            opacity: 1;
-        }
-        &.click {
-        opacity: 1;
-    }
-}
     .exist-board__bg {
+    position: absolute;
+    top: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+    .overlay {
         position: absolute;
         top: 0;
         object-fit: cover;
         width: 100%;
         height: 100%;
+    }
+    .darken {
+        filter: brightness(0.95); 
+    }
+    .star {
         z-index: 5;
+        position: absolute;
+        right: 7px;
+        bottom: 3px;
+        transition: color 0.3s;
+        color: grey;
+        &:hover {
+        stroke: gold;
+        }
+        &.active {
+        color: gold;
+        }
+        &.click {
+        opacity: 1;
+        &:hover {
+            color: grey;
+        }
+        }
     }
 }
 </style>

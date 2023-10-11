@@ -1,5 +1,5 @@
 <template>
-    <div class="star" :class="{'active': isActive, 'click': starClicked }" > 
+    <div class="star" > 
         <SvgIcon @click="toggleColor" type="mdi" :path="path"></SvgIcon>
     </div>
     
@@ -18,39 +18,23 @@ export default {
     data() {
         return {
             path: mdiStar,
-            isActive: false,
-            starClicked: false,
         };
     },
     methods: {
-    toggleColor() {
-      this.isActive = !this.isActive;
-      this.starClicked =!this.starClicked;
-    }
   }
 };
 </script>	
 
 <style lang='scss'>
 
-
 .star {
-    position: absolute;
-    bottom: 8px;
-    right: 12px;
-    color: grey;
-    &:hover {
-        stroke: gold;
-    }
-    &.active {
-        color: gold;
-    }
     & svg {
         width: 17px;
         height: 17px;
-    }
-    &.click {
-        opacity: 1;
+        color: rgb(82, 82, 82);
+        &:hover {
+        stroke: gold;
+        }
     }
 }
 </style>
