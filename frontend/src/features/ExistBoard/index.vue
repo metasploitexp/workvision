@@ -1,13 +1,11 @@
 <template>
-        <div class="exist-board">
-        <img class='exist-board__bg' src="../ExistBoard/DD-Night-Forest-Scene-45342.svg" alt="" v-bind:class="{ 'darken': isHovered }" v-on:mouseover="isHovered = true" v-on:mouseout="isHovered = false">
-            <span class="exist-board__title">
+    <div class="exist-board" v-on:mouseover="isHovered = true" v-on:mouseout="isHovered = false" >
+        <img class='exist-board__bg' src="../ExistBoard/DD-Night-Forest-Scene-45342.svg" alt="" v-bind:class="{ 'darken': isHovered, 'star': isStarHovered }" >
+            <span class="exist-board__title" v-bind:class="{ 'darken': isHovered }" v-on:mouseover="isHovered = true" v-on:mouseout="isHovered = false">
                 Созданная доска
             </span>
-            <div class="overlay" v-if="isHovered">
-                <Star class='star' />
-            </div>
-        </div>
+            <Star @click="starClicked = !starClicked" :class="{'star--active': isHovered || starClicked}" />
+    </div>
 </template>
 
 <script>
@@ -22,13 +20,10 @@ export default {
     data() {
         return {
             isHovered: false,
-            isStarClicked: false
+            starClicked: false,
         };
     },
     methods: {
-    toggleColor() {
-      this.isStarClicked =!this.iSstarClicked;
-    }
   }
 };
 </script>	
@@ -63,34 +58,14 @@ export default {
     width: 100%;
     height: 100%;
 }
-    .overlay {
-        position: absolute;
-        top: 0;
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-    }
     .darken {
         filter: brightness(0.95); 
     }
     .star {
-        z-index: 5;
+        display: none;
+        &--active {
+        display: block;
         position: absolute;
-        right: 7px;
-        bottom: 3px;
-        transition: color 0.3s;
-        color: grey;
-        &:hover {
-        stroke: gold;
-        }
-        &.active {
-        color: gold;
-        }
-        &.click {
-        opacity: 1;
-        &:hover {
-            color: grey;
-        }
         }
     }
 }
