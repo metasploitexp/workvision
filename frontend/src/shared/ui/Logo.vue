@@ -1,6 +1,6 @@
 <template>
     <div class="ui-logo">
-        <img src="@/shared/assets/icons/workvisionLogo.png">
+        <img src="@/shared/assets/image/workvisionLogo.png">
     </div>
 </template>
 
