@@ -1,3 +1,4 @@
 import LoginPage from './index.vue';
+import { LoginModel } from './modules';
 
-export default LoginPage;
+export { LoginPage, LoginModel };

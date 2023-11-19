@@ -11,4 +11,6 @@ export class CreateUserDto {
     @IsString({message: 'Wrong password'})
     @Length(6, 20, {message: 'Wrong password'})
     readonly password: string;
+
+    refreshToken: string;
 }

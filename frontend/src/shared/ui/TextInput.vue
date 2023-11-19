@@ -1,6 +1,6 @@
 <template>
     <div class="ui-text-input">
-        <input :type="type" :placeholder="placeholder" :value="value" @input="$emit('update:value', $event.target.value)">
+        <input :type="type" :placeholder="placeholder" :value="value" @input="handleValue">
     </div>
 </template>
 
@@ -20,7 +20,11 @@ export default {
             type: String,
             default: '',
         }
-
+    },
+    methods: {
+        handleValue(event) {
+            this.$emit('update', event.target.value);
+        }
     }
 }
 </script>

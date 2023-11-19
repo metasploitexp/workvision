@@ -7,7 +7,7 @@
                         {{ $t('login.mail') }}
                     </div>
                     <div class="login-form__content-mail__input">
-                        <TextInput type="mail" />
+                        <TextInput type="mail" :value="form.email" @update="handleUpdate('email', $event)" />
                     </div>
                 </div>
                 <div class="login-form__content-password">
@@ -15,10 +15,10 @@
                         {{ $t('login.password') }}
                     </div>
                     <div class="login-form__content-password__input">
-                        <TextInput type="password" />
+                        <TextInput type="password" :value="form.password" @update="handleUpdate('password', $event)" />
                     </div>
                 </div>
-                <div class="login-form__content-button">
+                <div class="login-form__content-button" @click="$emit('submit')">
                     <Btn :text="$t('login.button')" />
                 </div>
             </div>
@@ -37,6 +37,18 @@ export default {
         WrapForm,
         TextInput,
         Btn,
+    },
+    props: {
+        form: {
+            type: Object,
+            default: () => {},
+        }
+    },
+    methods: {
+        handleUpdate(property, $event) {
+            this.$emit('update', {property, value: $event})
+
+        }
     }
 }
 </script>

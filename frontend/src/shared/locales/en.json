@@ -8,6 +8,7 @@
   "register": {
     "title": "Sign in",
     "mail": "Mail",
+    "name": "Nickname",
     "password": "Password",
     "repeat": "Repeat password",
     "button": "Sign in"

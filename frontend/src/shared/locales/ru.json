@@ -8,6 +8,7 @@
   "register": {
     "title": "Вход",
     "mail": "Почта",
+    "name": "Имя",
     "password": "Пароль",
     "repeat": "Повторите пароль",
     "button": "Войти"

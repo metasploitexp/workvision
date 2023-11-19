@@ -7,7 +7,15 @@
                         {{ $t('register.mail') }}
                     </div>
                     <div class="register-form__content-mail__input">
-                        <TextInput type="mail" />
+                        <TextInput type="mail" :value="form.email" @update="handleUpdate('email', $event)" />
+                    </div>
+                </div>
+                <div class="register-form__content-name">
+                    <div class="register-form__content-name__label">
+                        {{ $t('register.name') }}
+                    </div>
+                    <div class="register-form__content-name__input">
+                        <TextInput type="text" :value="form.name" @update="handleUpdate('name', $event)" />
                     </div>
                 </div>
                 <div class="register-form__content-password">
@@ -15,7 +23,7 @@
                         {{ $t('register.password') }}
                     </div>
                     <div class="register-form__content-password__input">
-                        <TextInput type="password" />
+                        <TextInput type="password" :value="form.password" @update="handleUpdate('password', $event)" />
                     </div>
                 </div>
                 <div class="register-form__content-repeat">
@@ -23,10 +31,10 @@
                         {{ $t('register.repeat') }}
                     </div>
                     <div class="register-form__content-repeat__input">
-                        <TextInput type="password" />
+                        <TextInput type="password" :value="form.repeat" @update="handleUpdate('repeat', $event)" />
                     </div>
                 </div>
-                <div class="register-form__content-button">
+                <div class="register-form__content-button" @click="$emit('submit')">
                     <Btn :text="$t('register.button')" />
                 </div>
             </div>
@@ -45,6 +53,18 @@ export default {
         WrapForm,
         TextInput,
         Btn,
+    },
+    props: {
+        form: {
+            type: Object,
+            default: () => {},
+        }
+    },
+    methods: {
+        handleUpdate(property, $event) {
+            this.$emit('update', {property, value: $event})
+
+        }
     }
 }
 </script>
@@ -56,7 +76,7 @@ export default {
         &__content {
             @include default-flex(column, 20px);
 
-            &-mail, &-password, &-repeat {
+            &-mail, &-name, &-password, &-repeat {
                 @include default-flex(column, 10px);;
                 font-size: 18px;
             }

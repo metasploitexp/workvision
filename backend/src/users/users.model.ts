@@ -19,6 +19,9 @@ export class User extends Model<User, IUser> {
 
     @Column({type: DataType.STRING, allowNull: false})
     password: string;
+    
+    @Column({type: DataType.STRING, allowNull: true})
+    refreshToken: string;
 
     @Column({type: DataType.DATE})
     created_at: Date;
