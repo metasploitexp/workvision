@@ -16,6 +16,10 @@ export default {
             type: String,
             default: 'fit-content',
         },
+        mw: {
+            type: String,
+            default: '0',
+        },
         fs: {
             type: String,
             default: '18px',
@@ -35,6 +39,10 @@ export default {
         br: {
             type: String,
             default: '10px',
+        },
+        border: {
+            type: String,
+            default: 'none',
         }
     }
 }
@@ -43,12 +51,23 @@ export default {
 <style lang="scss">
     .ui-btn {
         width: v-bind(width);
+        min-width: v-bind(mw);
         font-size: v-bind(fs);
         color: v-bind(color);
         background: v-bind(background);
         padding: v-bind(padding);
         border-radius: v-bind(br);
+        border: v-bind(border);
         user-select: none;
         cursor: pointer;
+        text-align: center;
+        font-weight: bold;
+        transition: all .3s ease-in;
+
+        &:hover {
+            background: #0d0d9e;
+            color: v-bind(background);
+            transition: all .3s ease-in;
+        }
     }
 </style>

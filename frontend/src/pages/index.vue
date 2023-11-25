@@ -7,10 +7,14 @@
 
 <script>
 import { HeaderBar } from '@/features/HeaderBar';
+import { authRedirect } from '@/shared/utils/auth-redirect';
 
 export default {
     components: {
         HeaderBar,
+    },
+    mounted() {
+        authRedirect();
     }
 }
 </script>

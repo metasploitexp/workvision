@@ -1,5 +1,6 @@
 import { query } from '@/shared/api';
 import { validateForm } from '@/shared/utils/validate-form';
+import { set } from '@/shared/utils/local-storage'
 
 export const NAMESPACE: string = 'register';
 
@@ -34,29 +35,47 @@ export const module = {
         setErrors: (state: any, value: object) => state.errors = value,
     },
     actions: {
-        async registration({state, getters, commit}: any): Promise<void> {
+        async registration({state, getters, commit, dispatch}: any): Promise<void> {
             try {
                 let form = getters.form;
-                const registerEndpoint = getters.registerEndpoint;
                 
                 if (form.password !== form.repeat) {
                     return;
                 }
-                delete form.repeat;
+                const registerEndpoint = getters.registerEndpoint;
+        
+                const newForm = {
+                    email: form.email,
+                    name: form.name,
+                    password: form.password,
+                }
 
-                const errors: any = validateForm(form);
+                const errors: any = validateForm(newForm);
                 commit('setErrors', errors);
 
                 if (!errors.success) {
                     return;
                 }
 
-                const response = await query(registerEndpoint.path, form, registerEndpoint.method);
+                const response = await query(registerEndpoint.path, newForm, registerEndpoint.method);
+
+                if (response.data.success) {
+                    dispatch('saveAccess', response.data);
+                    window.location.href = '/';
+                }
                 console.log(response);
                 return;
             } catch (error) {
                 console.log(error);
                 return;
+            }
+        },
+        saveAccess({}, data: any): void {
+            try {
+                set('access_token', data.accessToken);
+                set('refresh_token', data.refreshToken);
+            } catch (error) {
+                console.log(error);
             }
         }
     }
