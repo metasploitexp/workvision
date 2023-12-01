@@ -1,5 +1,15 @@
 # Deploy backend
 
+##DATABASE
+
+Install Docker
+
+in dir /backend
+
+```
+docker-compose up -d
+```
+
 ## Dependencies
 
 ```
@@ -9,7 +19,7 @@ npm install
 ## Run dev mode
 
 ```
-npm run dev
+npm run start:dev
 ```
 
 # Deploy frontend
