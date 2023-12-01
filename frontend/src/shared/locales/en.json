@@ -1,16 +1,19 @@
 {
   "login": {
-    "title": "Sign in",
+    "title": "Welcome back",
     "mail": "Mail",
     "password": "Password",
-    "button": "Sign in"
+    "button": "Sign in",
+    "link": "Don't have an account? Sign uo"
   },
   "register": {
-    "title": "Sign in",
+    "title": "Create account",
     "mail": "Mail",
+    "name": "Nickname",
     "password": "Password",
     "repeat": "Repeat password",
-    "button": "Sign in"
+    "button": "Sign up",
+    "link": "Already have an account? Sign in"
   },
   "menu": {
     "home": "Home",

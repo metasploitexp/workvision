@@ -16,6 +16,10 @@ export default {
         title: {
             type: String,
             default: '',
+        },
+        color: {
+            type: String,
+            default: '#fff',
         }
     }
 }
@@ -24,16 +28,17 @@ export default {
 <style lang="scss">
     .ui-wrap-form {
         @include default-flex(column, 30px);
-        padding: 20px;
-        border-radius: 10px;
-        background: $white;
-        min-width: 300px;
+        padding: 30px 50px;
+        // border-radius: 10px;
+        // background: $white;
+        min-width: 400px;
 
         &__title {
-            font-size: 20px;
+            font-size: 30px;
             font-weight: 700;
             text-align: center;
             width: 100%;
+            color: v-bind(color);
         }
     }
 </style>

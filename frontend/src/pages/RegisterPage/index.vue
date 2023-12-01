@@ -11,7 +11,7 @@ export default {
     name: 'registerPage',
     components: {
         RegisterForm,
-    }
+    },
 }
 </script>
 

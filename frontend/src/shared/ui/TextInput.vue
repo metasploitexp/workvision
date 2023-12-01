@@ -1,6 +1,6 @@
 <template>
     <div class="ui-text-input">
-        <input :type="type" :placeholder="placeholder" :value="value" @input="$emit('update:value', $event.target.value)">
+        <input :type="type" :placeholder="placeholder" :value="value" @input="handleValue" @focus="$emit('onFocus')" @blur="$emit('onBlur')">
     </div>
 </template>
 
@@ -19,8 +19,16 @@ export default {
         value: {
             type: String,
             default: '',
+        },
+        border: {
+            type: String,
+            default: 'none',
         }
-
+    },
+    methods: {
+        handleValue(event) {
+            this.$emit('update', event.target.value);
+        }
     }
 }
 </script>
@@ -29,7 +37,10 @@ export default {
     .ui-text-input {
         
         input {
-            border: 1px solid $primary-background;
+            // border: v-bind(border);
+            border: 2px solid $primary-background;
+            // background: transparent;
+            // color: #fff;
             overflow: auto;
             outline: none;
             -webkit-box-shadow: none;
@@ -39,11 +50,16 @@ export default {
             height: 30px;
             font-size: 18px;
             border-radius: 10px;
-            padding: 5px;
+            padding: 20px 15px;
             width: 100%;
             box-sizing: border-box;
-            // width: 100%;
-            // max-width: 290px;
+
+            transition: all .3s ease-in;
+
+            &:focus {
+                border: v-bind(border);
+                transition: all .3s ease-in;
+            }
         }
     }
 </style>

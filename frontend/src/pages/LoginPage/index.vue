@@ -11,9 +11,10 @@ export default {
     name: 'loginPage',
     components: {
         LoginForm,
-    }
+    },
 }
 </script>
 
 <style lang="scss">
+    
 </style>
