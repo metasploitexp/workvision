@@ -8,13 +8,25 @@
 <script>
 import { HeaderBar } from '@/features/HeaderBar';
 import { authRedirect } from '@/shared/utils/auth-redirect';
+import { axiosHeaders } from '@/shared/utils/axios-headers';
+
+import { mapActions } from 'vuex';
 
 export default {
     components: {
         HeaderBar,
     },
-    mounted() {
-        authRedirect();
+    methods: {
+        ...mapActions({
+            fetchInit: 'user/fetchInit',
+        }),
+    },
+    async mounted() {
+        const needData = authRedirect();
+        if (needData.success) {
+            axiosHeaders(needData.token);
+            await this.fetchInit();
+        }
     }
 }
 </script>

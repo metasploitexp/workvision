@@ -4,6 +4,8 @@ interface IUser {
     name: string;
     email: string;
     password: string;
+    workspaces: JSON;
+    boards: JSON;
 }
 
 @Table({tableName: 'users', paranoid: true})
@@ -19,6 +21,12 @@ export class User extends Model<User, IUser> {
 
     @Column({type: DataType.STRING, allowNull: false})
     password: string;
+
+    @Column({type: DataType.STRING, allowNull: true})
+    workspaces: JSON;
+
+    @Column({type: DataType.STRING, allowNull: true})
+    boards: JSON;
     
     @Column({type: DataType.STRING, allowNull: true})
     refreshToken: string;
