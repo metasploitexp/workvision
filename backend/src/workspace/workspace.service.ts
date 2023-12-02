@@ -14,7 +14,6 @@ export class WorkspaceService {
     }
 
     async getUserWorkspaces(ids: any) {
-        console.log('new ids: ', ids)
         const workspaces = await this.workspaceRepository.findAll({where: {id: ids}});
         return workspaces;
     }
