@@ -1,6 +1,8 @@
 import { query } from '@/shared/api';
 import { validateForm } from '@/shared/utils/validate-form';
-import { set } from '@/shared/utils/local-storage'
+import { set } from '@/shared/utils/local-storage';
+
+import { axiosHeaders } from '@/shared/utils/axios-headers';
 
 export const NAMESPACE: string = 'register';
 
@@ -70,10 +72,12 @@ export const module = {
                 return;
             }
         },
-        saveAccess({}, data: any): void {
+        saveAccess({dispatch}: any, data: any): void {
             try {
-                set('access_token', data.accessToken);
-                set('refresh_token', data.refreshToken);
+                set('access_token', 'Bearer ' + data.accessToken);
+                set('refresh_token', 'Bearer ' + data.refreshToken);
+                axiosHeaders('Bearer ' + data.accessToken);
+                dispatch('user/fetchInit', {}, {root: true});
             } catch (error) {
                 console.log(error);
             }

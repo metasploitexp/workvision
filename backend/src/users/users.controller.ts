@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Get, Patch, Param, UseGuards } from "@nestjs/common";
+import { Body, Controller, Post, Get, Patch, Param, UseGuards, Request } from "@nestjs/common";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UsersService } from "./users.service";
 import { UpdateUserDto } from "./dto/update-users.dto";
@@ -18,6 +18,12 @@ export class UsersController {
     @Get()
     getAll() {
         return this.usersService.getAllUsers();
+    }
+
+    @UseGuards(AccessTokenGuard)
+    @Get('data')
+    getUser(@Request() request) {
+        return this.usersService.getUser(request?.user?.sub);
     }
 
     @Patch(':id')
