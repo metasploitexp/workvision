@@ -1,6 +1,8 @@
 <template>
     <div class='create-board' >
-        {{ $t('board.create') }}  
+        <span>
+            {{ $t('board.create') }}
+        </span>  
     </div>
 </template>
 
@@ -12,9 +14,10 @@ export default {
 </script>
 
 <style lang='scss'>
+
     .create-board {
         padding: 40px 0px;
-        margin-left: 25px;
+        margin: 0 25px;
         color: $black;
         background-color: $primary-background;
         width: 100%;
@@ -27,6 +30,14 @@ export default {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        position: relative;
+        & span {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
         &:hover {
             color: $black;
             background-color: $hover-background;

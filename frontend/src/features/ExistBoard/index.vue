@@ -13,6 +13,7 @@
 import Star from '@/shared/ui/Star.vue';
 
 export default {
+    props: ['propsa'],
     name: 'existBoard',
     components: {
         Star,
@@ -30,8 +31,7 @@ export default {
 
 <style lang='scss'>
     .exist-board {
-        padding: 50px 0px;
-        margin-left: 25px;
+        padding: 40px 0px;
         max-width: 320px;
         max-height: 100px;
         width: 100%;
