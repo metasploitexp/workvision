@@ -3,12 +3,11 @@ import {InjectModel} from "@nestjs/sequelize";
 import {User} from "./users.model";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-users.dto";
-import { WorkspaceService } from "src/workspace/workspace.service";
 
 
 @Injectable()
 export class UsersService {
-    constructor(@InjectModel(User) private userRepository: typeof User, private workspaceRepository: WorkspaceService) {}
+    constructor(@InjectModel(User) private userRepository: typeof User) {}
 
     async createUser(dto: CreateUserDto) {
         const user = await this.userRepository.create(dto);
@@ -27,17 +26,15 @@ export class UsersService {
 
     async getUser(id: number): Promise<any> {
         const defaultUser = await this.userRepository.findOne({where: {id}, include: {all: true}});
-
-        let workspaces: any = [];
-        if (defaultUser.workspaces) {
-            const ids:any = defaultUser.workspaces;
-            workspaces = await this.workspaceRepository.getUserWorkspaces(JSON.parse(ids));
-        }
+        // let workspaces: any = [];
+        // if (defaultUser.workspaces) {
+        //     const ids:any = defaultUser.workspaces;
+        //     workspaces = await this.workspaceRepository.getUserWorkspaces(JSON.parse(ids));
+        // }
         const user = {
             name: defaultUser.name,
             email: defaultUser.email,
             id: defaultUser.id,
-            workspaces,
         };
         return user;
     }
@@ -45,6 +42,12 @@ export class UsersService {
     async getAllUsers() {
         const users = await this.userRepository.findAll({include: {all: true}});
         return users;
+    }
+
+    async addWorkspace(id: number, spaceId: number) {
+        // const user = await this.userRepository.findOne({where: {id}});
+        // let space = JSON.parse(user.workspaces.toString());
+        // console.log('space: ', space, typeof space);
     }
 
     async update(id: number, updateUserDto: UpdateUserDto,) {

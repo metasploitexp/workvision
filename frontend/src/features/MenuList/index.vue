@@ -45,11 +45,14 @@ export default {
 
             &:hover {
                 opacity: 1;
+                color: $blue;
                 transition: all .3s;
             }
 
             &.is-active {
                 opacity: 1;
+                color: $blue;
+                transition: all .3s;
             }
         }
     }

@@ -4,6 +4,7 @@ import { WorkspaceController } from './workspace.controller';
 import { WorkspaceService } from './workspace.service';
 import { SequelizeModule } from "@nestjs/sequelize";
 import { Workspace } from "./workspace.model";
+import { WorkspaceUsers } from './workspace-users.model';
 
 @Module({
     controllers: [WorkspaceController],
@@ -12,6 +13,7 @@ import { Workspace } from "./workspace.model";
     ],
     imports: [
         SequelizeModule.forFeature([Workspace]),
+        SequelizeModule.forFeature([WorkspaceUsers]),
         forwardRef(() => UsersModule),
     ],
     exports: [

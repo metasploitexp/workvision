@@ -1,20 +1,20 @@
 import {BelongsToMany, Column, DataType, HasMany, Model, Table} from "sequelize-typescript";
 
 interface IWorkspace {
-    name: string;
-    owner_id: number;
+    user_id: number;
+    workspace_id: number;
 }
 
-@Table({tableName: 'workspaces', paranoid: true})
-export class Workspace extends Model<Workspace, IWorkspace> {
+@Table({tableName: 'workspaces_users', paranoid: true})
+export class WorkspaceUsers extends Model<WorkspaceUsers, IWorkspace> {
     @Column({type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true})
     id: number;
 
-    @Column({type: DataType.STRING, unique: false, allowNull: false})
-    name: string;
+    @Column({type: DataType.INTEGER, unique: false, allowNull: false})
+    user_id: number;
 
     @Column({type: DataType.INTEGER, unique: false, allowNull: false})
-    owner_id: number;
+    workspace_id: number;
 
     @Column({type: DataType.DATE})
     created_at: Date;

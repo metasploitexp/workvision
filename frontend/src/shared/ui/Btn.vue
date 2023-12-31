@@ -32,6 +32,10 @@ export default {
             type: String,
             default: '#000',
         },
+        hb: {
+            type: String,
+            default: '#0d0d9e',
+        },
         padding: {
             type: String,
             default: '10px 20px',
@@ -65,7 +69,7 @@ export default {
         transition: all .3s ease-in;
 
         &:hover {
-            background: #0d0d9e;
+            background: v-bind(hb);
             color: v-bind(background);
             transition: all .3s ease-in;
         }
