@@ -29,8 +29,6 @@ export default {
     .ui-wrap-form {
         @include default-flex(column, 30px);
         padding: 30px 50px;
-        // border-radius: 10px;
-        // background: $white;
         min-width: 400px;
 
         &__title {

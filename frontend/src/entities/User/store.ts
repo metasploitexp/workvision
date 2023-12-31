@@ -24,10 +24,15 @@ export const module = {
         user: (state: any) => state.user,
         isLogin: (state: any) => state.isLogin,
         fetchEndpoint: (state: any) => state.fetchEndpoint,
+        getId: (state: any) => state.user.id,
+        getWorkspaces: (state: any) => state.user.workspaces,
+        getBoards: (state: any) => state.user.boards,
     },
     mutations: {
         setUser: (state: any, value: any) => state.user = {...state.user, ...value},
         setIsLogin: (state: any, value: any) => state.isLogin = value,
+        addWorkspaces: (state: any, value: any) => state.user.workspaces.push(value),
+        addBoards: (state: any, value: any) => state.user.boards.push(value),
     },
     actions: {
         async fetchInit({getters, commit}: any) {

@@ -19,5 +19,11 @@
     "home": "Home",
     "workspaces": "Workspaces",
     "boards": "Boards"
+  },
+  "workspace": {
+    "create": "Create workspace",
+    "name": "Name",
+    "confirm": "Create",
+    "cancel": "Cancel"
   }
 }
