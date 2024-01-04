@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { HeaderBar } from '@/features/HeaderBar';
+import { HeaderBar } from '@/widgets/HeaderBar';
 import { authRedirect } from '@/shared/utils/auth-redirect';
 import { axiosHeaders } from '@/shared/utils/axios-headers';
 
@@ -26,6 +26,8 @@ export default {
         if (needData.success) {
             axiosHeaders(needData.token);
             await this.fetchInit();
+        } else {
+            this.$store.commit('user/setIsLogin', false);
         }
     }
 }

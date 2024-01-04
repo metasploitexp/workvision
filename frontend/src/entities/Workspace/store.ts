@@ -26,7 +26,7 @@ export const module = {
                 const endpoint = getters.endpoint;
                 const response = await query(endpoint.path);
                 
-                if (response.status === 200) {
+                if (response?.status === 200) {
                     commit('setWorkspaces', response.data);
                 }
             } catch (error) {

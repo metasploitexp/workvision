@@ -14,7 +14,7 @@ export const module = {
             boards: [],
             workspaces: [],
         },
-        isLogin: false,
+        isLogin: true,
         fetchEndpoint: {
             path: 'users/data',
             method: 'GET',
@@ -27,6 +27,7 @@ export const module = {
         getId: (state: any) => state.user.id,
         getWorkspaces: (state: any) => state.user.workspaces,
         getBoards: (state: any) => state.user.boards,
+        getName: (state: any) => state.user.name,
     },
     mutations: {
         setUser: (state: any, value: any) => state.user = {...state.user, ...value},
@@ -39,8 +40,11 @@ export const module = {
             const endpoint = getters.fetchEndpoint;
             const response = await query(endpoint.path);
             
-            if (response.status === 200) {
+            if (response?.status === 200) {
+                commit('setIsLogin', true);
                 commit('setUser', response.data)
+            } else {
+                commit('setIsLogin', false);
             }
         }
     }
