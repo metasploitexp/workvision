@@ -1,5 +1,5 @@
 <template>
-    <div class="ui-logo">
+    <div class="ui-logo" @click="$emit('handleClick')">
         <img src="@/shared/assets/image/workvisionLogo.png">
     </div>
 </template>
@@ -11,11 +11,17 @@ export default {
 </script>
 
 <style lang='scss'>
-    img {
-        width: 100%;
-        height: 100%;
-        max-width: 250px;
-        max-height: 250px;
+    .ui-logo {
+        width: fit-content;
+        user-select: none;
+        cursor: pointer;
+
+        img {
+            width: 100%;
+            height: 100%;
+            max-width: 250px;
+            max-height: 250px;
+        }
     }
 
 </style>

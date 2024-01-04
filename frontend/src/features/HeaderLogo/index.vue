@@ -1,6 +1,6 @@
 <template>
-    <div class="header-bar">
-        <Logo /> 
+    <div class="header-logo">
+        <Logo @handleClick="handleClick" /> 
     </div>
 </template>
 
@@ -8,17 +8,21 @@
 import Logo from '@/shared/ui/Logo.vue';
 
 export default {
-    name: 'headerBar',
+    name: 'headerLogo',
     components: {
         Logo,
+    },
+    methods: {
+        handleClick() {
+            this.$router.push('/');
+        }
     }
 }
 </script>
 
 <style lang="scss">
     .header-bar {
-        padding: 15px 15px;
-        border-bottom: 1px solid $primary-background;
+        
     }
     
 </style>

@@ -1,6 +1,7 @@
 import { query } from '@/shared/api';
 import { validateForm } from '@/shared/utils/validate-form';
-import { set } from '@/shared/utils/local-storage'
+import { set } from '@/shared/utils/local-storage';
+import router from '@/app/router';
 
 import { axiosHeaders } from '@/shared/utils/axios-headers';
 
@@ -33,6 +34,7 @@ export const module = {
         setForm: (state: any, form: object) => state.form = form,
         setFormParam: (state: any, obj: any) => state.form[obj.property] = obj.value,
         setErrors: (state: any, errors: object) => state.errors = errors,
+        resetForm: (state: any) => Object.keys(state.form).forEach(v => state.form[v] = ''),
     },
     actions: {
         async authorization({state, getters, commit, dispatch}: any): Promise<void> {
@@ -47,11 +49,13 @@ export const module = {
                 }
                 const response = await query(loginEndpoint.path, form, loginEndpoint.method);
 
-                if (response.data.success) {
+                if (response?.data?.success) {
+                    commit('user/setIsLogin', true, { root: true });
                     dispatch('saveAccess', response.data);
-                    window.location.href = '/';
+                    commit('resetForm');
+                    router.push('/');
                 }
-                console.log(response);
+                
                 return;
 
             } catch (error) {
