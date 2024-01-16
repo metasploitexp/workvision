@@ -19,6 +19,7 @@ export const module = {
     },
     mutations: {
         setWorkspaces: (state: any, value: any) => state.workspaces = value,
+        addWorkspaces: (state: any, value: any) => state.workspaces.push(value),
     },
     actions: {
         async fetchWorkspaces({getters, commit}: any) {

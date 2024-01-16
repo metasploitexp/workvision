@@ -1,24 +1,20 @@
 import {BelongsToMany, Column, DataType, HasMany, Model, Table} from "sequelize-typescript";
 
-interface IWorkspace {
-    user_id: number;
-    workspace_id: number;
-    role: number;
+interface IBoard {
+    name: string;
+    owner_id: number;
 }
 
-@Table({tableName: 'workspaces_users', paranoid: true})
-export class WorkspaceUsers extends Model<WorkspaceUsers, IWorkspace> {
+@Table({tableName: 'boards', paranoid: true})
+export class Board extends Model<Board, IBoard> {
     @Column({type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true})
     id: number;
 
-    @Column({type: DataType.INTEGER, unique: false, allowNull: false})
-    user_id: number;
+    @Column({type: DataType.STRING, unique: false, allowNull: false})
+    name: string;
 
     @Column({type: DataType.INTEGER, unique: false, allowNull: false})
-    workspace_id: number;
-
-    @Column({type: DataType.INTEGER, unique: false, allowNull: true})
-    role: number;
+    owner_id: number;
 
     @Column({type: DataType.DATE})
     created_at: Date;

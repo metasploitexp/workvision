@@ -1,13 +1,14 @@
 import {BelongsToMany, Column, DataType, HasMany, Model, Table} from "sequelize-typescript";
 
-interface IWorkspace {
+interface IBoard {
     user_id: number;
-    workspace_id: number;
+    board_id: number;
     role: number;
+    favorite: boolean;
 }
 
-@Table({tableName: 'workspaces_users', paranoid: true})
-export class WorkspaceUsers extends Model<WorkspaceUsers, IWorkspace> {
+@Table({tableName: 'board_users', paranoid: true})
+export class BoardUsers extends Model<BoardUsers, IBoard> {
     @Column({type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true})
     id: number;
 
@@ -15,10 +16,13 @@ export class WorkspaceUsers extends Model<WorkspaceUsers, IWorkspace> {
     user_id: number;
 
     @Column({type: DataType.INTEGER, unique: false, allowNull: false})
-    workspace_id: number;
+    board_id: number;
 
     @Column({type: DataType.INTEGER, unique: false, allowNull: true})
     role: number;
+
+    @Column({type: DataType.BOOLEAN, unique: false, allowNull: false})
+    favorite: boolean;
 
     @Column({type: DataType.DATE})
     created_at: Date;

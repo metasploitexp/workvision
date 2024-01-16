@@ -10,6 +10,7 @@ export const module = {
         form: {
             name: '',
             owner_id: null,
+            role: 0,
         },
         endpoints: {
             path: 'workspace',
@@ -34,7 +35,7 @@ export const module = {
                 const response = await query(endpoints.path, form, endpoints.method);
                 
                 if (response.status === 201) {
-                    commit('user/addWorkspaces', response.data, {root: true});
+                    commit('workspace/addWorkspaces', response.data, {root: true});
                     return true;
                 }
                 return false;

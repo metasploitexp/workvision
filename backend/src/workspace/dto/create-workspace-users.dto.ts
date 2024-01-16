@@ -6,4 +6,7 @@ export class CreateWorkspaceUsersDto {
 
     @IsNumber({})
     workspace_id: number;
+
+    @IsNumber({})
+    role: number;
 }

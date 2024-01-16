@@ -13,11 +13,12 @@ export class WorkspaceService {
 
     async createWorkspace(dto: CreateWorkspaceDto) {
         const workspace = await this.workspaceRepository.create(dto);
-        await this.createWorkspaceUsers({user_id: workspace.owner_id, workspace_id: workspace.id});
+        await this.createWorkspaceUsers({user_id: workspace.owner_id, workspace_id: workspace.id, role: dto.role});
         return {
             id: workspace.id,
             name: workspace.name,
             owner_id: workspace.owner_id,
+            role: dto.role,
         };
     }
 
@@ -34,12 +35,23 @@ export class WorkspaceService {
     async getAllUserWorkspace(id: number) {
         const userWorkspacesId: Array<any> = await this.getUserWorkspacesId(id) || [];
         const workspacesId = userWorkspacesId.map(x => x.workspace_id)
+        let roles = {}
+        userWorkspacesId.forEach((item) => {
+            roles[item.workspace_id] = item.role;
+        })
 
-        const workspaces = await this.workspaceRepository.findAll({where: {id: workspacesId}, include: {all: true}});
-        return workspaces;
+        const workspaces: any = await this.workspaceRepository.findAll({where: {id: workspacesId}, include: {all: true}});
+        const newWorkspaces = [];
+        workspaces.forEach(x => {
+            newWorkspaces.push({
+                ...x.dataValues,
+                role: roles[x.id],
+            })
+        })
+        return newWorkspaces;
     }
 
     async getUserWorkspacesId(id: number) {
-        return await this.workspaceUsersRepository.findAll({where: {user_id: id}, attributes: ['workspace_id'], include: {all: true}});
+        return await this.workspaceUsersRepository.findAll({where: {user_id: id}, attributes: ['workspace_id', 'role'], include: {all: true}});
     }
 }

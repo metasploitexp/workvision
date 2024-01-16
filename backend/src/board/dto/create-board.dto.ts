@@ -1,6 +1,6 @@
-import { IsNumber, IsString} from "class-validator";
+import { IsBoolean, IsNumber, IsString} from "class-validator";
 
-export class CreateWorkspaceDto {
+export class CreateBoardDto {
     
     @IsString({message: 'Wrong name'})
     readonly name: string;
@@ -10,4 +10,7 @@ export class CreateWorkspaceDto {
 
     @IsNumber({})
     role: number;
+
+    @IsBoolean({message: 'is not bool'})
+    favorite: boolean;
 }

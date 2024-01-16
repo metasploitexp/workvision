@@ -4,7 +4,7 @@
             {{ name }}
         </div>
         <div class="header-account__content" v-if="isActive">
-            <div class="header-account__content-item" v-for="(tab, index) in menu" :key="index">
+            <div class="header-account__content-item" v-for="(tab, index) in menu" :key="index" @click="handleClose">
                 <router-link :to="tab.path">{{ tab.name }}</router-link>
             </div>
         </div>

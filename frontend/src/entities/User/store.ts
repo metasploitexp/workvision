@@ -34,6 +34,15 @@ export const module = {
         setIsLogin: (state: any, value: any) => state.isLogin = value,
         addWorkspaces: (state: any, value: any) => state.user.workspaces.push(value),
         addBoards: (state: any, value: any) => state.user.boards.push(value),
+        resetUser: (state: any) => {
+            state.user = {
+                id: null,
+                name: '',
+                email: '',
+                boards: [],
+                workspaces: [],
+            }
+        },
     },
     actions: {
         async fetchInit({getters, commit}: any) {
@@ -46,6 +55,10 @@ export const module = {
             } else {
                 commit('setIsLogin', false);
             }
+        },
+        handleExit({commit}: any) {
+            commit('setIsLogin', false);
+            commit('resetUser');
         }
     }
 }
