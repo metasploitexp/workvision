@@ -25,5 +25,9 @@
     "name": "Name",
     "confirm": "Create",
     "cancel": "Cancel"
+  },
+  "errors": {
+    "email": "Incorrect mail",
+    "password": "Incorrect password"
   }
 }

@@ -9,6 +9,9 @@
                     <div class="login-form__content-mail__input">
                         <TextInput type="mail" :value="form.email" border="2px solid #0d0d9e" @update="handleUpdate('email', $event)" @onFocus="textColorized = 'mail'" @onBlur="onBlur" />
                     </div>
+                    <div class="login-form__content-mail__error" :class="{'login-form__content-mail__error--active': errors.fields.includes('email')}">
+                        {{ $t('errors.email') }}
+                    </div>
                 </div>
                 <div class="login-form__content-password">
                     <div class="login-form__content-password__label" :class="{'register-form__content--is-colorized': textColorized === 'password'}">
@@ -16,6 +19,9 @@
                     </div>
                     <div class="login-form__content-password__input">
                         <TextInput type="password" :value="form.password" border="2px solid #0d0d9e" @update="handleUpdate('password', $event)" @onFocus="textColorized = 'password'" @onBlur="onBlur" />
+                    </div>
+                    <div class="login-form__content-password__error" :class="{'login-form__content-password__error--active': errors.fields.includes('password')}">
+                        {{ $t('errors.password') }}
                     </div>
                 </div>
                 <div class="login-form__content-button" @click="handleSubmit">
@@ -51,6 +57,10 @@ export default {
             ...mapGetters({get: 'login/form'}),
             ...mapMutations({set: 'login/setFormParam'}),
         },
+      errors: {
+          ...mapGetters({get: 'login/errors'}),
+          ...mapMutations({set: 'login/spliceErrors'}),
+      }
     },
     methods: {
         ...mapActions({
@@ -58,6 +68,7 @@ export default {
         }),
         handleUpdate(property, value) {
             this.form = {property, value};
+            this.errors = property;
         },
         async handleSubmit() {
             await this.authorization();
@@ -84,6 +95,19 @@ export default {
                 font-size: 18px;
                 color: $black;
                 transition: all .3s ease-in;
+
+                &__error {
+                    font-size: 14px;
+                    color: $red;
+                    transition: max-height .5s ease-out;
+                    max-height: 0;
+                    overflow: hidden;
+
+                    &--active {
+                        transition: max-height .5s ease-out;
+                        max-height: 50px;
+                    }
+                }
             }
 
             &-button {
