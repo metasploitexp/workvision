@@ -99,12 +99,13 @@ export default {
                 &__error {
                     font-size: 14px;
                     color: $red;
-                    transition: max-height .5s ease-out;
+                    transition: max-height .3s ease-out;
                     max-height: 0;
                     overflow: hidden;
+                    height: fit-content;
 
                     &--active {
-                        transition: max-height .5s ease-out;
+                        transition: max-height .3s ease-out;
                         max-height: 50px;
                     }
                 }
