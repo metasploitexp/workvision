@@ -20,7 +20,7 @@
                     <div class="register-form__content-name__input">
                         <TextInput type="text" :value="form.name" border="2px solid #0d0d9e" @update="handleUpdate('name', $event)" @onFocus="textColorized = 'name'" @onBlur="onBlur" />
                     </div>
-                    <div class="register-form__content-mail__error" :class="{'register-form__content-mail__error--active': errors.fields.includes('name')}">
+                    <div class="register-form__content-name__error" :class="{'register-form__content-name__error--active': errors.fields.includes('name')}">
                         {{ $t('errors.name') }}
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                     <div class="register-form__content-password__input">
                         <TextInput type="password" :value="form.password" border="2px solid #0d0d9e" @update="handleUpdate('password', $event)" @onFocus="textColorized = 'password'" @onBlur="onBlur" />
                     </div>
-                    <div class="register-form__content-mail__error" :class="{'register-form__content-mail__error--active': errors.fields.includes('password')}">
+                    <div class="register-form__content-password__error" :class="{'register-form__content-password__error--active': errors.fields.includes('password')}">
                         {{ $t('errors.password') }}
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                     <div class="register-form__content-repeat__input">
                         <TextInput type="password" :value="form.repeat" border="2px solid #0d0d9e" @update="handleUpdate('repeat', $event)" @onFocus="textColorized = 'repeat'" @onBlur="onBlur" />
                     </div>
-                    <div class="register-form__content-mail__error" :class="{'register-form__content-mail__error--active': errors.fields.includes('password')}">
+                    <div class="register-form__content-repeat__error" :class="{'register-form__content-repeat__error--active': errors.fields.includes('password')}">
                         {{ $t('errors.password') }}
                     </div>
                 </div>
