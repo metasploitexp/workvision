@@ -9,6 +9,9 @@
                     <div class="register-form__content-mail__input">
                         <TextInput type="mail" :value="form.email" border="2px solid #0d0d9e" @update="handleUpdate('email', $event)" @onFocus="textColorized = 'mail'" @onBlur="onBlur" />
                     </div>
+                    <div class="register-form__content-mail__error" :class="{'register-form__content-mail__error--active': errors.fields.includes('email')}">
+                        {{ $t('errors.email') }}
+                    </div>
                 </div>
                 <div class="register-form__content-name">
                     <div class="register-form__content-name__label" :class="{'register-form__content--is-colorized': textColorized === 'name'}">
@@ -16,6 +19,9 @@
                     </div>
                     <div class="register-form__content-name__input">
                         <TextInput type="text" :value="form.name" border="2px solid #0d0d9e" @update="handleUpdate('name', $event)" @onFocus="textColorized = 'name'" @onBlur="onBlur" />
+                    </div>
+                    <div class="register-form__content-name__error" :class="{'register-form__content-name__error--active': errors.fields.includes('name')}">
+                        {{ $t('errors.name') }}
                     </div>
                 </div>
                 <div class="register-form__content-password">
@@ -25,6 +31,9 @@
                     <div class="register-form__content-password__input">
                         <TextInput type="password" :value="form.password" border="2px solid #0d0d9e" @update="handleUpdate('password', $event)" @onFocus="textColorized = 'password'" @onBlur="onBlur" />
                     </div>
+                    <div class="register-form__content-password__error" :class="{'register-form__content-password__error--active': errors.fields.includes('password')}">
+                        {{ $t('errors.password') }}
+                    </div>
                 </div>
                 <div class="register-form__content-repeat">
                     <div class="register-form__content-repeat__label" :class="{'register-form__content--is-colorized': textColorized === 'repeat'}">
@@ -32,6 +41,9 @@
                     </div>
                     <div class="register-form__content-repeat__input">
                         <TextInput type="password" :value="form.repeat" border="2px solid #0d0d9e" @update="handleUpdate('repeat', $event)" @onFocus="textColorized = 'repeat'" @onBlur="onBlur" />
+                    </div>
+                    <div class="register-form__content-repeat__error" :class="{'register-form__content-repeat__error--active': errors.fields.includes('password')}">
+                        {{ $t('errors.password') }}
                     </div>
                 </div>
                 <div class="register-form__content-button" @click="handleSubmit">
@@ -66,7 +78,11 @@ export default {
         form: {
             ...mapGetters({get: 'register/form'}),
             ...mapMutations({set: 'register/setFormParam'}),
-        }
+        },
+        errors: {
+          ...mapGetters({get: 'register/errors'}),
+          ...mapMutations({set: 'register/spliceErrors'}),
+      },
     },
     methods: {
         ...mapActions({
@@ -74,6 +90,7 @@ export default {
         }),
         handleUpdate(property, value) {
             this.form = {property, value};
+            this.errors = property;
         },
         async handleSubmit() {
             await this.registration();
@@ -94,11 +111,25 @@ export default {
         &__content {
             @include default-flex(column, 20px);
 
-            &-mail, &-name, &-password, &-repeat {
+            &-mail , &-name, &-password, &-repeat {
                 @include default-flex(column, 10px);;
                 font-size: 18px;
                 transition: all .3s ease-in;
+                &__error {
+                    font-size: 14px;
+                    color: $red;
+                    transition: max-height .3s ease-out;
+                    max-height: 0;
+                    overflow: hidden;
+                    height: fit-content;
+
+                    &--active {
+                        transition: max-height .3s ease-out;
+                        max-height: 50px;
+                    }
+                }
             }
+            
 
             &-button {
                 margin: 0 auto;

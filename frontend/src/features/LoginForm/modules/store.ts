@@ -34,6 +34,12 @@ export const module = {
         setForm: (state: any, form: object) => state.form = form,
         setFormParam: (state: any, obj: any) => state.form[obj.property] = obj.value,
         setErrors: (state: any, errors: object) => state.errors = errors,
+        spliceErrors: (state: any, property: string) => {
+            const index = state.errors.fields.indexOf(property);
+            if (index > -1) {
+                state.errors.fields.splice(index, 1);
+            }
+        },
         resetForm: (state: any) => Object.keys(state.form).forEach(v => state.form[v] = ''),
     },
     actions: {

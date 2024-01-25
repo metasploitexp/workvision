@@ -4,7 +4,7 @@
     "mail": "Mail",
     "password": "Password",
     "button": "Sign in",
-    "link": "Don't have an account? Sign uo"
+    "link": "Don't have an account? Sign you"
   },
   "register": {
     "title": "Create account",
@@ -25,5 +25,10 @@
     "name": "Name",
     "confirm": "Create",
     "cancel": "Cancel"
+  },
+  "errors": {
+    "email": "Incorrect mail",
+    "password": "Incorrect password",
+    "name": "Incorrect name"
   }
 }
