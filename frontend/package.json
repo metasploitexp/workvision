@@ -10,6 +10,7 @@
   "dependencies": {
     "@jamescoyle/vue-icon": "^0.1.2",
     "@mdi/js": "^7.3.67",
+    "@mdi/light-js": "^0.2.63",
     "axios": "^1.4.0",
     "click-outside-vue3": "^4.0.1",
     "core-js": "^3.8.3",

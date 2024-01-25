@@ -37,7 +37,7 @@
                 <div class="register-form__content-button" @click="handleSubmit">
                     <Btn :text="$t('register.button')" background="#fff" border="2px solid #0d0d9e" color="#000" mw="100px" />
                 </div>
-                <router-link class="register-form__content-link" :to="{name: 'login'}">{{ $t('register.link') }}</router-link>
+                <router-link class="register-form__content-link" :to="{name: 'login'}"> </router-link>
             </div>
         </WrapForm>
     </div>

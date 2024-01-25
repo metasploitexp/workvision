@@ -25,5 +25,9 @@
     "name": "Name",
     "confirm": "Create",
     "cancel": "Cancel"
+  },
+  "account": {
+    "settings":"Settings",
+    "logout":"Logout"
   }
 }

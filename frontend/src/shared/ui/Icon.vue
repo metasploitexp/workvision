@@ -17,6 +17,11 @@ export default {
         path: {
             type: String,
             default: mdiCloseThick,
+        },
+        return {
+            icons:[
+                
+            ]
         }
     }
 }

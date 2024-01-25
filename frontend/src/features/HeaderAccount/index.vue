@@ -5,7 +5,7 @@
         </div>
         <div class="header-account__content" v-if="isActive">
             <div class="header-account__content-item" v-for="(tab, index) in menu" :key="index">
-                <router-link :to="tab.path">{{ tab.name }}</router-link>
+                <svg-icon type="mdi" :path="tab.icon"></svg-icon><router-link class="header-account__content-item__router" :to="tab.path">{{ $t(`account.${tab.name}`) }}</router-link>
             </div>
         </div>
     </div>
@@ -13,23 +13,31 @@
 
 <script>
 import vClickOutside from 'click-outside-vue3';
+import SvgIcon from '@jamescoyle/vue-icon';
+import { mdilLogout } from '@mdi/light-js';
+import { mdilSettings } from '@mdi/light-js';
 
 export default {
     name: 'headerAccount',
     directives: {
         clickOutside: vClickOutside.directive
     },
+    components: {
+		SvgIcon
+	},
     data() {
         return {
             isActive: false,
             menu: [
                 {
                     path: '/settings',
-                    name: 'settings'
+                    name: 'settings',
+                    icon: mdilSettings,
                 },
                 {
                     path: '/logout',
-                    name: 'logout'
+                    name: 'logout',
+                    icon: mdilLogout   
                 }
             ]
         }
@@ -65,18 +73,46 @@ export default {
             cursor: pointer;
     
             &:hover, &--active {
-                border: 2px solid $blue;
+                border: 2px solid $light-blue;
                 color: $blue;
                 transition: all .3s ease-in;
             }
         }
 
         &__content {
+            color: $black;
             position: absolute;
             right: 0;
-            margin-top: 10px;
-            background: $primary-background;
-            padding: 10px 20px;
+            margin-top: 20px;
+            padding: 15px 25px;
+            border: 2px solid $light-blue;
+            border-radius: 5px;
+            :hover {
+                fill: $blue;
+                color: $blue;
+                }
+
+            &-item {
+                color: $black;
+                display:flex;
+                align-items: center;
+                
+                &__router {
+                    color: $black;
+                    text-decoration: none;
+                    font-size: 18px;
+                    margin-left: 5px;
+                }
+            }
+            
+            animation: slide-in 0.5s linear;
+            @keyframes slide-in {
+            0% {
+            top: -30px; 
+            }
+            100% {
+            top: 60px; 
+            }}
         }
     }
 </style>
