@@ -1,12 +1,35 @@
 <template>
-    <div class="ui-btn" @click="$emit('handleButton')">
+    <div @click="handleLoader">
+        <div v-if="showBtn" class="ui-btn" @click="$emit('handleButton')">
         {{ text }}
+    </div>
+    <div v-if="showLoader" class=" ui-btn__loader ">
+        <Loader/>
+    </div>
     </div>
 </template>
 
 <script>
+
+import Loader from '@/shared/ui/Loader.vue';
+
 export default {
     name: 'uiBtn',
+    components : {
+        Loader,
+    },
+    data() {
+        return {
+            showBtn:true,
+            showLoader:false
+        };
+    },
+    methods: {
+        handleLoader() {
+            this.showBtn=!this.showBtn,
+            this.showLoader=!this.showLoader
+        },
+    },
     props: {
         text: {
             type: String,
@@ -53,9 +76,9 @@ export default {
 </script>
 
 <style lang="scss">
-    .ui-btn {
-        width: v-bind(width);
-        min-width: v-bind(mw);
+    .ui-btn  {
+        /* width: v-bind(width);  */
+        min-width: /* v-bind(mw); */ 107px;
         font-size: v-bind(fs);
         color: v-bind(color);
         background: v-bind(background);
@@ -72,6 +95,17 @@ export default {
             background: v-bind(hb);
             color: v-bind(background);
             transition: all .3s ease-in;
+        }
+        &__loader {
+            min-width: 107px;
+            max-height: 34.5px;
+            border: 2px solid #0d0d9e;
+            border-radius: 10px;
+            padding: 5px 20px ;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
         }
     }
 </style>

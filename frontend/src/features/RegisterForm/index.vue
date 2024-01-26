@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="register-form__content-button" @click="handleSubmit">
-                    <Btn :text="$t('register.button')" background="#fff" border="2px solid #0d0d9e" color="#000" mw="100px" />
+                    <Btn :text="$t('register.button')" background="#fff" border="2px solid #0d0d9e" color="#000" mw="100px"/>
                 </div>
                 <router-link class="register-form__content-link" :to="{name: 'login'}">{{ $t('register.link') }}</router-link>
             </div>
@@ -77,6 +77,8 @@ export default {
         },
         async handleSubmit() {
             await this.registration();
+            this.showContent =!this.showContent
+            this.showLoader =!this.showLoader
         },
         onBlur() {
             this.textColorized = '';
@@ -100,11 +102,16 @@ export default {
                 transition: all .3s ease-in;
             }
 
+            &-loader {
+                display: flex;
+                justify-content: center;
+                position: absolute;
+                }
+
             &-button {
                 margin: 0 auto;
                 width: fit-content;
                 font-size: 18px;
-
             }
 
             &-link {
