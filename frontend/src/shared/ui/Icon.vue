@@ -5,6 +5,7 @@
 </template>
 
 <script>
+
 import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiCloseThick } from '@mdi/js';
 
@@ -16,13 +17,8 @@ export default {
     props: {
         path: {
             type: String,
-            default: mdiCloseThick,
+            default: mdiCloseThick
         },
-        return {
-            icons:[
-                
-            ]
-        }
     }
 }
 </script>
